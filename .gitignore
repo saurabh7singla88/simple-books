@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+backend/dist/
+frontend/dist/
+**/dist/
+
+# Environment variables (contain secrets — never commit)
+.env
+**/.env
+.env.local
+.env.*.local
+
+# SQLite database (runtime data — use migrations/seeds instead)
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Uploaded files (user-generated content)
+backend/uploads/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# Docker volumes (managed by Docker, not Git)
+# (no files to ignore here, volumes are external)
