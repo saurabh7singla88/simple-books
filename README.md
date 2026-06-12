@@ -36,16 +36,6 @@ Set in `docker-compose.yml`. Key variables:
 
 Data is persisted in `./data/accounts.db` and `./backend/uploads/` on the host.
 
-## Development (without Docker)
-
-```bash
-# Backend (port 4000)
-cd backend && npm install && npm run dev
-
-# Frontend (port 3002)
-cd frontend && npm install && npm run dev
-```
-
 ## License
 
 MIT
