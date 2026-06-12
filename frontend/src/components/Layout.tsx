@@ -62,12 +62,7 @@ function NavItemLink({ item }: { item: NavItem }) {
         }`
       }
       // match active state on base path for query-parameterized links
-      {...(item.path.includes('?') ? {
-        className: () => {
-          const active = window.location.pathname === basePath && window.location.search.includes(item.path.split('?')[1]);
-          return `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors ${active ? 'bg-blue-50 text-blue-700 font-medium' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`;
-        }
-      } : {})}
+
     >
       <span className="text-sm w-4 text-center">{item.icon}</span>
       {item.label}

@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  app:
+    image: nebrix001/accounts:latest
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./data:/data
+      - ./uploads:/app/uploads
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: /data/accounts.db
+      JWT_SECRET: change-this-in-production-please
+      PORT: "4000"
+    restart: unless-stopped

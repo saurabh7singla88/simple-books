@@ -16,8 +16,19 @@ React 18 · Vite · Tailwind CSS · Node.js 20 · Express · Drizzle ORM · SQLi
 
 ## Quick Start
 
+**From Docker Hub (no build required):**
+
 ```bash
-git clone https://github.com/your-username/accounts.git
+curl -O https://raw.githubusercontent.com/nebrix001/accounts/main/docker-compose.hub.yml
+docker compose -f docker-compose.hub.yml up -d
+```
+
+Then open **http://localhost:4000** — frontend and API are served from the same container.
+
+**From source:**
+
+```bash
+git clone https://github.com/nebrix001/accounts.git
 cd accounts
 docker compose up --build
 ```
@@ -27,7 +38,7 @@ docker compose up --build
 | Frontend | http://localhost:3002  |
 | API      | http://localhost:4000  |
 
-Default login: `admin@example.com` / `admin123` — **change the password on first login.**
+Default login: `admin@accounts.local` / `admin123` — **change the password on first login.**
 
 ## Environment Variables
 
@@ -37,7 +48,7 @@ Set in `docker-compose.yml`. Key variables:
 |----------------|--------------------------------------|------------------------------|
 | `JWT_SECRET`   | `change-this-in-production-please`   | **Must be changed**          |
 | `DATABASE_URL` | `/data/accounts.db`                  | SQLite file path             |
-| `CORS_ORIGIN`  | `http://localhost:3002`              | Allowed frontend origin      |
+| `PORT`         | `4000`                               | Exposed port                 |
 
 Data is persisted in `./data/accounts.db` and `./backend/uploads/` on the host.
 

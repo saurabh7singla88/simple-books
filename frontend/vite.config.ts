@@ -9,5 +9,8 @@ export default defineConfig({
     watch: {
       usePolling: true, // Required for Docker on Windows
     },
+    proxy: {
+      '/api': 'http://localhost:4000',
+    },
   },
 });

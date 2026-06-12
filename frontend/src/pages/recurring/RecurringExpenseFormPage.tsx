@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import apiClient from '../../api/client';
-import { Contact, ChartAccount, RecurringExpense } from '../../types';
+import { Contact, ChartAccount, RecurringExpense, RecurringFrequency } from '../../types';
 import { today } from '../../lib/utils';
 
 const FREQUENCIES = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY'] as const;
@@ -22,7 +22,7 @@ export default function RecurringExpenseFormPage() {
     description: '',
     amount: 0,
     taxRate: 0,
-    frequency: 'MONTHLY' as const,
+    frequency: 'MONTHLY' as RecurringFrequency,
     startDate: today(),
     endDate: '',
     nextDate: today(),

@@ -2,7 +2,10 @@ import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000',
+  // Empty baseURL = relative URLs.
+  // In production: served from same Express origin, so /api/* goes to Express.
+  // In development: Vite proxy forwards /api/* to http://localhost:4000.
+  baseURL: '',
 });
 
 apiClient.interceptors.request.use((config) => {
@@ -17,8 +20,13 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      useAuthStore.getState().logout();
-      window.location.href = '/login';
+      // Don't redirect if this was the login request itself, or if already on /login
+      const isLoginRequest = error.config?.url?.includes('/auth/login');
+      const isAlreadyOnLogin = window.location.pathname === '/login';
+      if (!isLoginRequest && !isAlreadyOnLogin) {
+        useAuthStore.getState().logout();
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(error);
   }
