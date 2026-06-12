@@ -16,27 +16,11 @@ React 18 · Vite · Tailwind CSS · Node.js 20 · Express · Drizzle ORM · SQLi
 
 ## Quick Start
 
-**From Docker Hub (no build required):**
-
 ```bash
-curl -O https://raw.githubusercontent.com/nebrix001/accounts/main/docker-compose.hub.yml
-docker compose -f docker-compose.hub.yml up -d
+docker run -d -p 4000:4000 -v ./data:/data -e JWT_SECRET=changeme nebrix001/simple-books:latest
 ```
 
 Then open **http://localhost:4000** — frontend and API are served from the same container.
-
-**From source:**
-
-```bash
-git clone https://github.com/nebrix001/accounts.git
-cd accounts
-docker compose up --build
-```
-
-| Service  | URL                    |
-|----------|------------------------|
-| Frontend | http://localhost:3002  |
-| API      | http://localhost:4000  |
 
 Default login: `admin@accounts.local` / `admin123` — **change the password on first login.**
 

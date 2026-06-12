@@ -2,11 +2,13 @@
   "name": "accounts",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "docker:build": "docker build -t nebrix001/accounts:latest .",
-    "docker:push": "docker push nebrix001/accounts:latest",
+    "docker:build": "docker build -t nebrix001/simple-books:latest .",
+    "docker:push": "docker push nebrix001/simple-books:latest",
     "docker:publish": "npm run docker:build && npm run docker:push",
     "docker:run": "docker compose up --build",
-    "docker:run:hub": "docker compose -f docker-compose.hub.yml up -d"
+    "docker:run:hub": "docker compose -f docker-compose.hub.yml up -d",
+    "docker:pushrm:api": "node scripts/push-dockerhub-readme.js"
   }
 }

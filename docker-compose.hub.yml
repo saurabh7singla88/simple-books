@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   app:
-    image: nebrix001/accounts:latest
+    image: nebrix001/simple-books:latest
     ports:
       - "4000:4000"
     volumes:
